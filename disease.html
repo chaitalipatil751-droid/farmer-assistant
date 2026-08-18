@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Disease Information</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">🌾 Farmer Assistant</div>
+
+        <div>
+            <a href="/dashboard">Dashboard</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <h1>🦠 Crop Disease Information</h1>
+        <p>Common crop diseases, symptoms and basic solutions.</p>
+           
+<br>
+        <form method="GET" action="/disease">
+
+            <input
+                type="text"
+                name="search"
+                placeholder="Search disease..."
+                value="{{ search }}"
+            >
+
+            <button class="btn" type="submit">
+                🔎 Search
+            </button>
+
+        </form>
+
+        <br>
+
+        <div class="card-container">
+
+            {% if diseases %}
+
+                {% for disease in diseases %}
+
+                <div class="card">
+
+                    <h2>🦠 {{ disease["disease_name"] }}</h2>
+
+                    <br>
+
+                    <p>
+                        <b>Symptoms:</b>
+                        {{ disease["symptoms"] }}
+                    </p>
+
+                    <br>
+
+                    <p>
+                        <b>Solution:</b>
+                        {{ disease["solution"] }}
+                    </p>
+
+                </div>
+
+                {% endfor %}
+
+            {% else %}
+
+                <div class="info-card">
+                    <p>No disease information available.</p>
+                </div>
+
+            {% endif %}
+
+        </div>
+
+        <a class="back-link" href="/dashboard">
+            ← Back to Dashboard
+        </a>
+
+    </div>
+
+</body>
+</html>

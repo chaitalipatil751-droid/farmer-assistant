@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Farming Tips</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">🌾 Farmer Assistant</div>
+
+        <div>
+            <a href="/dashboard">Dashboard</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <h1>🌾 Farming Tips</h1>
+        <p>Useful tips for better and safer farming.</p>
+
+        <br>
+
+        <div class="card-container">
+
+            {% if tips %}
+
+                {% for tip in tips %}
+
+                <div class="card">
+
+                    <h2>💡 {{ tip["title"] }}</h2>
+
+                    <br>
+
+                    <p>{{ tip["tip"] }}</p>
+
+                </div>
+
+                {% endfor %}
+
+            {% else %}
+
+                <div class="info-card">
+                    <p>No farming tips available.</p>
+                </div>
+
+            {% endif %}
+
+        </div>
+
+        <a class="back-link" href="/dashboard">
+            ← Back to Dashboard
+        </a>
+
+    </div>
+
+</body>
+</html>

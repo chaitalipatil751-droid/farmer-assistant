@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Farmer Assistant</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            🌾 Farmer Assistant
+        </div>
+
+        <div>
+            <a href="/login">Login</a>
+            <a href="/register">Register</a>
+        </div>
+
+    </nav>
+
+
+    <div class="container">
+
+        <div class="dashboard-title">
+
+            <h1>🌾 Welcome to Farmer Assistant</h1>
+
+            <p>
+                Your simple digital assistant for smarter farming.
+            </p>
+
+            <br>
+
+            <a class="btn" href="/register">
+                Get Started
+            </a>
+
+            <a class="btn" href="/login">
+                Login
+            </a>
+
+        </div>
+
+
+        <div class="card-container">
+
+            <div class="card">
+                <h2>🌱</h2>
+                <h3>Crop Information</h3>
+                <p>Learn about crops, seasons and soil.</p>
+            </div>
+
+            <div class="card">
+                <h2>🦠</h2>
+                <h3>Disease Information</h3>
+                <p>Find information about crop diseases.</p>
+            </div>
+
+            <div class="card">
+                <h2>🌦️</h2>
+                <h3>Weather</h3>
+                <p>Get useful weather information.</p>
+            </div>
+
+            <div class="card">
+                <h2>💰</h2>
+                <h3>Market Prices</h3>
+                <p>Check crop prices in different markets.</p>
+            </div>
+
+            <div class="card">
+                <h2>🌾</h2>
+                <h3>Farming Tips</h3>
+                <p>Get useful tips for better farming.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

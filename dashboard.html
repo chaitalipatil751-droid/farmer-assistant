@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Farmer Dashboard</title>
+
+```
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}">
+```
+
+</head>
+
+<body>
+
+```
+<nav class="navbar">
+
+    <div class="logo">
+        🌾 Farmer Assistant
+    </div>
+
+    <div>
+
+        <a href="/dashboard">Dashboard</a>
+
+        {% if session.get("admin_logged_in") %}
+            <a href="/admin">👨‍🌾 Farmer Data</a>
+        {% endif %}
+
+        <a href="/logout">Logout</a>
+
+    </div>
+
+</nav>
+
+
+<div class="container">
+
+    <div class="dashboard-title">
+
+        {% if session.get("admin_logged_in") %}
+
+            <h1>👨‍💼 Admin Dashboard</h1>
+
+            <p class="welcome">
+                Welcome, Admin
+            </p>
+
+        {% else %}
+
+            <h1>Farmer Dashboard</h1>
+
+            <p class="welcome">
+                Welcome, <b>{{ farmer_name }}</b> 👨‍🌾
+            </p>
+
+        {% endif %}
+
+    </div>
+
+
+    <!-- Feature Cards -->
+
+    <div class="card-container">
+
+
+        <!-- Crop -->
+
+        <div class="card">
+
+            <h2>🌱</h2>
+
+            <h3>Crop Information</h3>
+
+            <p>
+                Get useful information about different crops.
+            </p>
+
+            <br>
+
+            <a class="btn" href="/crop">
+                View Crops
+            </a>
+
+        </div>
+
+
+        <!-- Disease -->
+
+        <div class="card">
+
+            <h2>🦠</h2>
+
+            <h3>Disease Information</h3>
+
+            <p>
+                Learn about common crop diseases and solutions.
+            </p>
+
+            <br>
+
+            <a class="btn" href="/disease">
+                View Diseases
+            </a>
+
+        </div>
+
+
+        <!-- Weather -->
+
+        <div class="card">
+
+            <h2>🌦️</h2>
+
+            <h3>Weather</h3>
+
+            <p>
+                Check weather-related information.
+            </p>
+
+            <br>
+
+            <a class="btn" href="/weather">
+                View Weather
+            </a>
+
+        </div>
+
+
+        <!-- Market -->
+
+        <div class="card">
+
+            <h2>💰</h2>
+
+            <h3>Market Price</h3>
+
+            <p>
+                Check crop prices in different markets.
+            </p>
+
+            <br>
+
+            <a class="btn" href="/market">
+                View Prices
+            </a>
+
+        </div>
+
+
+        <!-- Farming Tips -->
+
+        <div class="card">
+
+            <h2>🌾</h2>
+
+            <h3>Farming Tips</h3>
+
+            <p>
+                Get useful tips for better farming.
+            </p>
+
+            <br>
+
+            <a class="btn" href="/tips">
+                View Tips
+            </a>
+
+        </div>
+
+
+        <!-- Admin Only -->
+
+        {% if session.get("admin_logged_in") %}
+
+        <div class="card">
+
+            <h2>👨‍🌾</h2>
+
+            <h3>Farmer Data</h3>
+
+            <p>
+                View and manage all registered farmers.
+            </p>
+
+            <br>
+
+            <a class="btn" href="/admin">
+                View Farmer Data
+            </a>
+
+        </div>
+
+        {% endif %}
+
+
+    </div>
+
+</div>
+```
+
+</body>
+</html>

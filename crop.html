@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crop Information</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">🌾 Farmer Assistant</div>
+
+        <div>
+            <a href="/dashboard">Dashboard</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <h1>🌱 Crop Information</h1>
+        <p>Learn about crops, seasons and suitable soil.</p>
+
+        <form method="GET" action="/crop">
+
+    <input
+        type="text"
+        name="search"
+        placeholder="Search crop..."
+        value="{{ search }}"
+    >
+
+    <button class="btn" type="submit">
+        🔎 Search
+    </button>
+
+</form>
+
+<br>
+    <br>
+
+        <div class="card-container">
+
+            {% if crops %}
+
+                {% for crop in crops %}
+
+                <div class="card">
+
+                    <h2>🌱 {{ crop["crop_name"] }}</h2>
+
+                    <p>
+                        <b>Season:</b>
+                        {{ crop["season"] }}
+                    </p>
+
+                    <br>
+
+                    <p>
+                        <b>Soil:</b>
+                        {{ crop["soil"] }}
+                    </p>
+
+                    <br>
+
+                    <p>
+                        {{ crop["description"] }}
+                    </p>
+
+                </div>
+
+                {% endfor %}
+
+            {% else %}
+
+                <div class="info-card">
+                    <p>No crop information available.</p>
+                </div>
+
+            {% endif %}
+
+        </div>
+
+        <a class="back-link" href="/dashboard">
+            ← Back to Dashboard
+        </a>
+
+    </div>
+
+</body>
+</html>

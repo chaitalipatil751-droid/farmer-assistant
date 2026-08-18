@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather Information</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">🌾 Farmer Assistant</div>
+
+        <div>
+            <a href="/dashboard">Dashboard</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </nav>
+
+
+    <div class="container">
+
+        <h1>🌦️ Weather Information</h1>
+
+        <p>
+            Enter your city to check current weather.
+        </p>
+
+        <br>
+
+
+        <!-- Search Form -->
+
+        <div class="form-box">
+
+            <form method="POST">
+
+                <label>City Name</label>
+
+                <input
+                    type="text"
+                    name="city"
+                    placeholder="Enter city name"
+                    required
+                >
+
+                <button class="btn" type="submit">
+                    🌦️ Check Weather
+                </button>
+
+            </form>
+
+        </div>
+
+
+        <!-- Error Message -->
+
+        {% if error %}
+
+        <div class="info-card">
+
+            <h3>⚠️ Error</h3>
+
+            <p>{{ error }}</p>
+
+        </div>
+
+        {% endif %}
+
+
+        <!-- Weather Result -->
+
+        {% if weather_data %}
+
+        <div class="card-container">
+
+            <div class="card">
+
+                <h2>📍 {{ weather_data["city"] }}</h2>
+
+                <br>
+
+                <h3>🌡️ Temperature</h3>
+
+                <p>
+                    {{ weather_data["temperature"] }} °C
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h2>💧 Humidity</h2>
+
+                <br>
+
+                <p>
+                    {{ weather_data["humidity"] }}%
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h2>☁️ Condition</h2>
+
+                <br>
+
+                <p>
+                    {{ weather_data["condition"] }}
+                </p>
+
+            </div>
+
+        </div>
+
+        {% endif %}
+
+
+        <a class="back-link" href="/dashboard">
+            ← Back to Dashboard
+        </a>
+
+    </div>
+
+</body>
+</html>

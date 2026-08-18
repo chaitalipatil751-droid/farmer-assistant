@@ -1,0 +1,280 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #eef7ee;
+    color: #243b2a;
+}
+
+/* NAVBAR */
+
+.navbar {
+    background: #1b5e20;
+    padding: 18px 45px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+.logo {
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    color: #c8e6c9;
+}
+
+/* MAIN */
+
+.container {
+    width: 90%;
+    max-width: 1150px;
+    margin: 45px auto;
+}
+
+/* HEADINGS */
+
+h1 {
+    color: #1b5e20;
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+h2 {
+    color: #2e7d32;
+}
+
+h3 {
+    margin: 10px 0;
+}
+
+/* DASHBOARD */
+
+.dashboard-title {
+    text-align: center;
+    padding: 35px 20px;
+    margin-bottom: 35px;
+    background: linear-gradient(135deg, #dcedc8, #f1f8e9);
+    border-radius: 18px;
+}
+
+.dashboard-title h1 {
+    font-size: 38px;
+}
+
+.welcome {
+    font-size: 18px;
+}
+
+/* CARDS */
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: white;
+    padding: 28px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 5px 18px rgba(46, 125, 50, 0.15);
+    border-top: 5px solid #43a047;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+}
+
+.card h2 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    line-height: 1.6;
+}
+
+/* BUTTON */
+
+.btn {
+    display: inline-block;
+    background: #2e7d32;
+    color: white;
+    padding: 12px 22px;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #1b5e20;
+}
+
+/* FORM */
+
+.form-box {
+    background: white;
+    width: 100%;
+    max-width: 480px;
+    margin: 35px auto;
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 6px 22px rgba(46, 125, 50, 0.15);
+    border-top: 6px solid #43a047;
+}
+
+.form-box label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-box input {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #bdbdbd;
+    border-radius: 8px;
+    outline: none;
+}
+
+.form-box input:focus {
+    border-color: #43a047;
+}
+
+.form-box button {
+    width: 100%;
+    margin-top: 15px;
+}
+
+/* SEARCH */
+
+.container > form {
+    background: white;
+    padding: 18px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+.container > form input {
+    padding: 12px;
+    width: 70%;
+    border: 1px solid #bbb;
+    border-radius: 7px;
+}
+
+.container > form button {
+    margin-left: 8px;
+}
+
+/* INFORMATION */
+
+.info-card {
+    background: white;
+    padding: 25px;
+    margin: 20px 0;
+    border-left: 6px solid #43a047;
+    border-radius: 10px;
+}
+
+/* TABLE */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    margin-top: 25px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+th {
+    background: #2e7d32;
+    color: white;
+    padding: 15px;
+}
+
+td {
+    padding: 14px;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+tr:hover {
+    background: #f1f8e9;
+}
+
+/* BACK LINK */
+
+.back-link {
+    display: inline-block;
+    margin-top: 25px;
+    color: #1b5e20;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* HOME */
+
+.home-hero {
+    text-align: center;
+    padding: 70px 20px;
+    background: linear-gradient(135deg, #c8e6c9, #f1f8e9);
+    border-radius: 20px;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+        padding: 18px;
+    }
+
+    .navbar a {
+        margin: 5px;
+    }
+
+    .container {
+        width: 94%;
+        margin: 25px auto;
+    }
+
+    h1 {
+        font-size: 27px;
+    }
+
+    .dashboard-title h1 {
+        font-size: 30px;
+    }
+
+    .container > form input {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .container > form button {
+        margin-left: 0;
+    }
+}

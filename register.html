@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Farmer Registration</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">🌾 Farmer Assistant</div>
+
+        <div>
+            <a href="/">Home</a>
+            <a href="/login">Login</a>
+        </div>
+    </nav>
+
+
+    <div class="container">
+
+        <div class="form-box">
+
+            <h1>👨‍🌾 Farmer Registration</h1>
+
+            <p>Create your Farmer Assistant account.</p>
+
+            <br>
+
+            <form method="POST">
+
+                <label>Name</label>
+                <input type="text"
+                       name="name"
+                       placeholder="Enter your name"
+                       required>
+
+                <label>Mobile Number</label>
+                <input type="text"
+                       name="mobile"
+                       placeholder="Enter mobile number"
+                       required>
+
+                <label>Email</label>
+                <input type="email"
+                       name="email"
+                       placeholder="Enter your email"
+                       required>
+
+                <label>Location</label>
+                <input type="text"
+                       name="location"
+                       placeholder="Enter your location"
+                       required>
+
+                <label>Password</label>
+                <input type="password"
+                       name="password"
+                       placeholder="Create a password"
+                       required>
+
+                <button class="btn" type="submit">
+                    Register
+                </button>
+
+            </form>
+
+            <br>
+
+            <p>
+                Already have an account?
+                <a href="/login">Login here</a>
+            </p>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
