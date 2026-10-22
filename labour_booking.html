@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Labour</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">🌾 Farmer Assistant</div>
+    <a href="/dashboard">Dashboard</a>
+</nav>
+
+<div class="container">
+    <h1>Book Labour</h1>
+
+    <h3>{{ labour.name }}</h3>
+    <p>Village: {{ labour.village }}</p>
+    <p>Work: {{ labour.work_type }}</p>
+    <p>Daily Wage: ₹{{ labour.daily_wage }}</p>
+    <p>Mobile: {{ labour.mobile }}</p>
+
+    <form method="POST">
+        <label>Work Date</label>
+        <input type="date" name="work_date" required>
+
+        <button type="submit">Confirm Booking</button>
+    </form>
+</div>
+
+</body>
+</html>
