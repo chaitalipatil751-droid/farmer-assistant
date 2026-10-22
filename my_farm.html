@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Farm</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            🌾 Farmer Assistant
+        </div>
+
+        <div>
+            <a href="/dashboard">Dashboard</a>
+            <a href="/logout">Logout</a>
+        </div>
+
+    </nav>
+
+    <div class="container">
+
+        <div class="form-box">
+
+            <h1>🌱 My Farm</h1>
+
+            <p>Enter your farm details</p>
+
+            <form method="POST">
+
+                <label>Farm Area</label>
+
+                <input type="number"
+                       name="area"
+                       step="0.01"
+                       placeholder="Enter farm area"
+                       required>
+
+                <label>Unit</label>
+
+                <select name="unit" required>
+                    <option value="Acre">Acre</option>
+                    <option value="Hectare">Hectare</option>
+                </select>
+
+                <label>Soil Type</label>
+
+                <select name="soil" required>
+                    <option value="Black Soil">Black Soil</option>
+                    <option value="Loamy Soil">Loamy Soil</option>
+                    <option value="Clay Soil">Clay Soil</option>
+                    <option value="Sandy Soil">Sandy Soil</option>
+                </select>
+
+                <label>Season</label>
+
+                <select name="season" required>
+                    <option value="Kharif">Kharif</option>
+                    <option value="Rabi">Rabi</option>
+                    <option value="Summer">Summer</option>
+                </select>
+
+                <button type="submit" class="btn">
+                    🌱 Get Crop Recommendation
+                </button>
+
+            </form>
+{% if recommendation %}
+
+<div class="info-card">
+
+    <h2>🌾 Recommended Crops</h2>
+
+    <p>
+        तुमच्या शेतीच्या area, soil आणि season नुसार:
+    </p>
+
+    {% for item in recommendation %}
+
+    <div class="card">
+
+        <h2>🌱 {{ item.crop }}</h2>
+
+        <p>
+            Seed per Acre:
+            <b>{{ item.seed_per_acre }} kg</b>
+        </p>
+
+        <p>
+            Estimated Total Seed Required:
+            <b>{{ item.total_seed }} kg</b>
+        </p>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+{% endif %}
+        </div>
+
+    </div>
+
+</body>
+</html>
+
