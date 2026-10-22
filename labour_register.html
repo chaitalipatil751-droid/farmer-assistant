@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Labour Registration</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+        .labour-container {
+            max-width: 650px;
+            margin: 40px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .labour-container h1 {
+            text-align: center;
+            color: #1b5e20;
+            margin-bottom: 10px;
+        }
+
+        .labour-container p {
+            text-align: center;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .labour-form .form-group {
+            margin-bottom: 18px;
+        }
+
+        .labour-form label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .labour-form input,
+        .labour-form select {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 15px;
+            background: #fff;
+        }
+
+        .labour-form input:focus,
+        .labour-form select:focus {
+            outline: none;
+            border-color: #2e7d32;
+        }
+
+        .labour-form button {
+            width: 100%;
+            padding: 12px;
+            background: #1b5e20;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .labour-form button:hover {
+            background: #2e7d32;
+        }
+
+        .labour-links {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .labour-links a {
+            color: #1b5e20;
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+            .labour-container {
+                margin: 20px 12px;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">🌾 Farmer Assistant</div>
+        <a href="/dashboard">Dashboard</a>
+    </nav>
+
+    <div class="labour-container">
+
+        <h1>Labour Registration</h1>
+
+        <p>Register yourself to get farming work.</p>
+
+        <form class="labour-form"
+              action="{{ url_for('labour_register') }}"
+              method="POST">
+
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text"
+                       name="name"
+                       placeholder="Enter your full name"
+                       required>
+            </div>
+
+            <div class="form-group">
+                <label>Mobile Number</label>
+                <input type="tel"
+                       name="mobile"
+                       placeholder="Enter 10 digit mobile number"
+                       pattern="[0-9]{10}"
+                       maxlength="10"
+                       required>
+            </div>
+
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password"
+                       name="password"
+                       placeholder="Create a password"
+                       required>
+            </div>
+
+            <div class="form-group">
+                <label>Village</label>
+                <input type="text"
+                       name="village"
+                       placeholder="Enter your village"
+                       required>
+            </div>
+
+            <div class="form-group">
+                <label>Type of Work</label>
+                <select name="work_type" required>
+                    <option value="">Select Work</option>
+                    <option value="Planting">Planting</option>
+                    <option value="Harvesting">Harvesting</option>
+                    <option value="Watering">Watering</option>
+                    <option value="Fertilizer Spraying">
+                        Fertilizer Spraying
+                    </option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Daily Wage (₹)</label>
+                <input type="number"
+                       name="daily_wage"
+                       placeholder="Enter daily wage"
+                       min="1"
+                       required>
+            </div>
+
+            <button type="submit">Register</button>
+
+        </form>
+
+        <div class="labour-links">
+            Already Registered?
+            <a href="{{ url_for('labour_management') }}">
+                View Labour List
+            </a>
+        </div>
+
+    </div>
+
+</body>
+</html>
