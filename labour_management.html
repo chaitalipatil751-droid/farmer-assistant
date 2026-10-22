@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Labour Management</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="logo">🌾 Farmer Assistant</div>
+
+    <div>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/logout">Logout</a>
+    </div>
+</nav>
+
+<div class="container">
+
+    <h1>👷 Labour Management</h1>
+    <p>Find workers for your farming activities.</p>
+
+    
+<h2>🔔 Labour Booking Notifications</h2>
+
+{% for booking in bookings %}
+<div class="card">
+
+    <h3>New Labour Booking</h3>
+
+    <p>Farmer: {{ booking.farmer_name }}</p>
+    <p>Mobile: {{ booking.farmer_mobile }}</p>
+    <p>Labour: {{ booking.labour_name }}</p>
+    <p>Work Date: {{ booking.work_date }}</p>
+    <p>Status: {{ booking.status }}</p>
+
+</div>
+{% else %}
+<p>No bookings yet.</p>
+{% endfor %}
+
+
+    <form action="/labour-management" method="GET">
+        <input type="text"
+               name="search"
+               placeholder="Enter village name">
+
+        <button type="submit">Search</button>
+    </form>
+
+    <br>
+
+    {% for labour in labours %}
+
+    <div class="card">
+        <h3>{{ labour.name }}</h3>
+
+        <p>Mobile: {{ labour.mobile }}</p>
+        <p>Village: {{ labour.village }}</p>
+        <p>Work: {{ labour.work_type }}</p>
+        <p>Daily Wage: ₹{{ labour.daily_wage }}</p>
+        <p>Availability: {{ labour.availability }}</p>
+
+        <a class="btn"
+           href="{{ url_for('book_labour', labour_id=labour.id) }}">
+            Book Labour
+        </a>
+    </div>
+
+    {% else %}
+
+    <p>No labour registered yet.</p>
+
+    {% endfor %}
+
+    <br>
+
+    <a class="btn" href="/labour-register">
+        Register New Labour
+    </a>
+
+</div>
+
+</body>
+</html>
